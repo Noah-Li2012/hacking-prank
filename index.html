@@ -1,1 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>NoahLi Terminal</title>
+  <style>
+    body {
+      background-color: black;
+      color: #00ff00;
+      font-family: "Courier New", monospace;
+      padding: 20px;
+    }
+
+    .console {
+      white-space: pre-wrap;
+      font-size: 1.1em;
+    }
+
+    #cursor {
+      display: inline-block;
+      width: 10px;
+      background: #00ff00;
+      animation: blink 0.8s infinite;
+    }
+
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      50.01%, 100% { opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="console" id="console">
+    Loading system...
+  </div>
+
+  <script>
+    const lines = [
+      ">>> Booting NoahLi HackOS v1.0",
+      ">>> 正在连接微信服务器...",
+      ">>> Connection established.",
+      ">>> 正在扫描目标：BestFriend_007",
+      ">>> Target located. Device: Unknown",
+      ">>> 正在提取聊天记录...",
+      ">>> Uploading data to NoahNet...",
+      ">>> 已检测到异常行为，正在强制接管系统。",
+      ">>> [WARNING] 用户试图断开连接！",
+      ">>> 强制入侵中...",
+      ">>> Success. 所有权限已获取。",
+      "",
+      ">>> 你已经被浩闻NoahLi 黑入..."
+    ];
+
+    const consoleEl = document.getElementById('console');
+    let i = 0;
+
+    function typeLine() {
+      if (i < lines.length) {
+        consoleEl.innerHTML += "\n" + lines[i];
+        i++;
+        setTimeout(typeLine, 1000);
+      }
+    }
+
+    window.onload = function () {
+      setTimeout(() => {
+        consoleEl.innerHTML = "";
+        typeLine();
+      }, 1000);
+    };
+  </script>
+</body>
+</html>
 
